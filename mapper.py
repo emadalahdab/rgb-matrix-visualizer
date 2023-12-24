@@ -22,11 +22,11 @@ except:
 class MapperNull:
     def __init__(self, g):
         self.gui = g
-        self.width = self.gui.width
-        self.height = self.gui.height
+        self.width = 64
+        self.height = 64
         self.multiplier = self.gui.multiplier
-        self.panelW = self.gui.panelW
-        self.panelH = self.gui.panelH
+        self.panelW = 64
+        self.panelH = 32
 
         if hasattr(self.gui, "matrix"):
             self.matrix = self.gui.matrix
@@ -77,8 +77,8 @@ class MapperColorAdjust(MapperNull):
 class MapperStripToRect(MapperNull):
     def __init__(self, g):
         super().__init__(g)
-        self.width = int(self.gui.width / 2)
-        self.height = self.gui.height * 2
+        self.width = 64
+        self.height = 64
 
     def set_pixel(self, x, y, color):
         if (x < 0) or (y < 0) or (x >= self.width) or (y >= self.height):
