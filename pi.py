@@ -32,7 +32,7 @@ from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
 
 class PiMatrix:
-    def __init__(self, w = 32 * 4, h = 32, panelW = 32, panelH = 32):
+    def __init__(self, w = 64 * 1, h = 32* 2, panelW = 64, panelH = 32):
         self.width = w # x-axis
         self.height = h # y-axis
 
@@ -44,26 +44,26 @@ class PiMatrix:
 
         options = RGBMatrixOptions()
 
-        options.cols = self.panelW # x-axis
-        options.rows = self.panelH # y-axis
+        options.cols = 64  #self.panelW # x-axis
+        options.rows = 32 #self.panelH # y-axis
 
-        options.chain_length = int(self.width / options.cols) # x-axis
-        options.parallel = int(self.height / options.rows) # y-axis
+        options.chain_length = 1 #int(self.width / options.cols) # x-axis
+        options.parallel = 2 #int(self.height / options.rows) # y-axis
 
-        options.row_address_type = 0
-        options.multiplexing = 0
-        options.pwm_bits = 11
+        #options.row_address_type = 0
+        #options.multiplexing = 0
+        #options.pwm_bits = 11
         options.brightness = 100
-        options.pwm_lsb_nanoseconds = 130
-        options.led_rgb_sequence = 'RGB'
-        #options.hardware_mapping = 'regular'  # If you have an Adafruit HAT: 'adafruit-hat'
-        #options.gpio_slowdown = 2
+        #options.pwm_lsb_nanoseconds = 130
+        #options.led_rgb_sequence = 'RGB'
+        options.hardware_mapping = 'regular'  # If you have an Adafruit HAT: 'adafruit-hat'
+        options.gpio_slowdown = 2
         #options.pixel_mapper_config = "Rotate:270"
 
         # newer Pimoroni 32x32 panels require this setting for additional
         # initialization of the shift-registers on there.
         # fortunately this also works for the older type of panels.
-        options.panel_type = "FM6126A"
+        #options.panel_type = "FM6126A"
 
         self.matrix = RGBMatrix(options = options)
 
