@@ -352,8 +352,8 @@ class Tetris:
         x_off, y_off = off
 
         if self.fact > 1:
-            self.text[0].draw(-x_off - 2, y_off - 6)
-            self.text[1].draw(-x_off - 2, y_off)
+            self.text[0].draw(-x_off - 2, y_off - 35)
+            self.text[1].draw(-x_off - 2, y_off - 27)
         else:
             self.text[0].draw(-x_off - 2, y_off - 11)
             self.text[1].draw(-x_off - 2, y_off - 5)
